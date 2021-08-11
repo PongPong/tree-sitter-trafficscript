@@ -1,0 +1,2 @@
+http.setHeader( "Host", "secure.mysite.com" );
+pool.use( "mypool" );

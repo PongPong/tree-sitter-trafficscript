@@ -1,0 +1,38 @@
+================================================================================
+Imports
+================================================================================
+import foo;
+foo.headbug();
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_statement
+    (identifier)
+    (semi_colon))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (identifier)
+      (arguments))
+    (semi_colon)))
+
+================================================================================
+Imports with alias
+================================================================================
+import foo as mylib;
+mylib.headbug();
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_statement
+    (identifier)
+    (identifier)
+    (semi_colon))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (identifier)
+      (arguments))
+    (semi_colon)))
+

@@ -1,0 +1,32 @@
+================================================================================
+Variables
+================================================================================
+
+$path = http.GetPath();
+$bytes = connection.getDataLen();
+$pi = 3.14157;
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (call_expression
+        (identifier)
+        (identifier)
+        (arguments)))
+    (semi_colon))
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (call_expression
+        (identifier)
+        (identifier)
+        (arguments)))
+    (semi_colon))
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (number))
+    (semi_colon)))

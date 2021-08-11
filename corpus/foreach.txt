@@ -1,0 +1,66 @@
+================================================================================
+foreach
+================================================================================
+foreach ( $element in $array ) {
+ log.info( "Element #" . $i . " " . $element );
+ $i++;
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (for_each_statement
+    (scalar_identifier)
+    (scalar_identifier)
+    (statement_block
+      (expression_statement
+        (call_expression
+          (identifier)
+          (identifier)
+          (arguments
+            (binary_expression
+              (binary_expression
+                (binary_expression
+                  (string)
+                  (scalar_identifier))
+                (string))
+              (scalar_identifier))))
+        (semi_colon))
+      (expression_statement
+        (update_expression
+          (scalar_identifier))
+        (semi_colon)))))
+
+================================================================================
+foreach with expression
+================================================================================
+foreach ( $key in hash.keys($hash)){
+ log.info("Key: " . $key . "; Value: " . $hash[$key] . ";");
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (for_each_statement
+    (scalar_identifier)
+    (call_expression
+      (identifier)
+      (identifier)
+      (arguments
+        (scalar_identifier)))
+    (statement_block
+      (expression_statement
+        (call_expression
+          (identifier)
+          (identifier)
+          (arguments
+            (binary_expression
+              (binary_expression
+                (binary_expression
+                  (binary_expression
+                    (string)
+                    (scalar_identifier))
+                  (string))
+                (subscript_expression
+                  (scalar_identifier)
+                  (scalar_identifier)))
+              (string))))
+        (semi_colon)))))

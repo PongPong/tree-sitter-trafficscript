@@ -1,0 +1,56 @@
+================================================================================
+switch statement with default
+================================================================================
+$host = http.getHostHeader();
+switch( $host, string.startsWith ) {
+ case "secure", "ssl":
+ pool.use( "secure pool" );
+ case "www":
+ pool.use( "non-secure pool");
+ default:
+ pool.use( "discard" );
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (call_expression
+        (identifier)
+        (identifier)
+        (arguments)))
+    (semi_colon))
+  (switch_statement
+    (scalar_identifier)
+    (identifier)
+    (identifier)
+    (switch_body
+      (switch_case
+        (sequence_expression
+          (string)
+          (string))
+        (expression_statement
+          (call_expression
+            (identifier)
+            (identifier)
+            (arguments
+              (string)))
+          (semi_colon)))
+      (switch_case
+        (string)
+        (expression_statement
+          (call_expression
+            (identifier)
+            (identifier)
+            (arguments
+              (string)))
+          (semi_colon)))
+      (switch_default
+        (expression_statement
+          (call_expression
+            (identifier)
+            (identifier)
+            (arguments
+              (string)))
+          (semi_colon))))))

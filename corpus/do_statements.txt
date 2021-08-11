@@ -1,0 +1,40 @@
+================================================================================
+do statements
+================================================================================
+
+$count = 0;
+do {
+ log.info( "In loop, count = " . $count );
+ $count = $count + 1;
+} while( $count < 10 );
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (number))
+    (semi_colon))
+  (do_statement
+    (statement_block
+      (expression_statement
+        (call_expression
+          (identifier)
+          (identifier)
+          (arguments
+            (binary_expression
+              (string)
+              (scalar_identifier))))
+        (semi_colon))
+      (variable_declaration
+        (assignment_expression
+          (scalar_identifier)
+          (binary_expression
+            (scalar_identifier)
+            (number)))
+        (semi_colon)))
+    (parenthesized_expression
+      (binary_expression
+        (scalar_identifier)
+        (number)))
+    (semi_colon)))

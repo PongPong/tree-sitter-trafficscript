@@ -1,0 +1,33 @@
+{
+  "name": "tree-sitter-trafficscript",
+  "version": "0.1.0",
+  "description": "Riverband Trafficscript grammar for tree-sitter",
+  "main": "bindings/node",
+  "keywords": [
+    "parser",
+    "trafficscript",
+    "riverband"
+  ],
+  "author": "Pong Lam",
+  "license": "MIT",
+  "dependencies": {
+    "nan": "2.14.1",
+    "tree-sitter": "^0.19.0"
+  },
+  "devDependencies": {
+    "tree-sitter-cli": "0.20.0"
+  },
+  "scripts": {
+    "generate": "tree-sitter generate && node-gyp build",
+    "test": "tree-sitter test",
+    "example": "tree-sitter parse examples/*"
+  },
+  "tree-sitter": [
+    {
+      "scope": "source.rbts",
+      "file-types": [
+        "rbts"
+      ]
+    }
+  ]
+}

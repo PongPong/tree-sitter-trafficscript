@@ -1,0 +1,36 @@
+================================================================================
+for loop - simple
+================================================================================
+for ( $i = 0; $i < $arraylen; $i++ ){
+ log.info ( "Element #" . $i . " " . $array[$i]);
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (for_statement
+    (assignment_expression
+      (scalar_identifier)
+      (number))
+    (semi_colon)
+    (binary_expression
+      (scalar_identifier)
+      (scalar_identifier))
+    (semi_colon)
+    (update_expression
+      (scalar_identifier))
+    (statement_block
+      (expression_statement
+        (call_expression
+          (identifier)
+          (identifier)
+          (arguments
+            (binary_expression
+              (binary_expression
+                (binary_expression
+                  (string)
+                  (scalar_identifier))
+                (string))
+              (subscript_expression
+                (scalar_identifier)
+                (scalar_identifier)))))
+        (semi_colon)))))

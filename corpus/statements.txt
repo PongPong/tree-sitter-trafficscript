@@ -1,0 +1,20 @@
+================================================================================
+Statements
+================================================================================
+import http;
+http.setHeader( "Host", "secure.mysite.com" );
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_statement
+    (identifier)
+    (semi_colon))
+  (expression_statement
+    (call_expression
+      (identifier)
+      (identifier)
+      (arguments
+        (string)
+        (string)))
+    (semi_colon)))

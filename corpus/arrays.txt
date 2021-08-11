@@ -1,0 +1,17 @@
+================================================================================
+Arrays declaration with initialization
+================================================================================
+
+$array = [ "Alex", "Matt", "Oliver", "Laurence" ];
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (array
+        (string)
+        (string)
+        (string)
+        (string)))
+    (semi_colon)))

@@ -1,0 +1,58 @@
+================================================================================
+Hash declaration with initialization
+================================================================================
+$hash = [ 
+  "orange" => "fruit",
+  "apple" => "fruit",
+  "cabbage" => "vegetable",
+  "pear" => "fruit" ];
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (hash
+        (pair
+          (string)
+          (string))
+        (pair
+          (string)
+          (string))
+        (pair
+          (string)
+          (string))
+        (pair
+          (string)
+          (string))))
+    (semi_colon)))
+
+================================================================================
+Hash with number as key
+================================================================================
+
+$hash = [ 
+  1 => "fruit",
+  2 => "fruit",
+  3 => "vegetable",
+  4 => "fruit" ];
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (hash
+        (pair
+          (number)
+          (string))
+        (pair
+          (number)
+          (string))
+        (pair
+          (number)
+          (string))
+        (pair
+          (number)
+          (string))))
+    (semi_colon)))

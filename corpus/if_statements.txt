@@ -1,0 +1,60 @@
+================================================================================
+if statements
+================================================================================
+$ipversion = string.validIPAddress( $x );
+if ( 4 == $ipversion ) {
+ # do something specific to IPv4
+} else if ( 6 == $ipversion ) {
+ # do something specific to IPv6
+} else {
+ # error: not a valid IP address
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (call_expression
+        (identifier)
+        (identifier)
+        (arguments
+          (scalar_identifier))))
+    (semi_colon))
+  (if_statement
+    (parenthesized_expression
+      (binary_expression
+        (number)
+        (scalar_identifier)))
+    (statement_block
+      (comments))
+    (else_clause
+      (if_statement
+        (parenthesized_expression
+          (binary_expression
+            (number)
+            (scalar_identifier)))
+        (statement_block
+          (comments))
+        (else_clause
+          (statement_block
+            (comments)))))))
+
+================================================================================
+if statements with single break
+================================================================================
+if(array.length($parts) == 0) break;
+--------------------------------------------------------------------------------
+
+(source_file
+  (if_statement
+    (parenthesized_expression
+      (binary_expression
+        (call_expression
+          (identifier)
+          (identifier)
+          (arguments
+            (scalar_identifier)))
+        (number)))
+    (break_statement
+      (semi_colon))))

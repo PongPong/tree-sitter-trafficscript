@@ -1,0 +1,74 @@
+================================================================================
+Strings
+================================================================================
+$single = 'Hello \
+world';
+$double = "Hello \
+world";
+
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (string
+        (escape_sequence)))
+    (semi_colon))
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (string
+        (escape_sequence)))
+    (semi_colon)))
+
+================================================================================
+HTML strings
+================================================================================
+
+http.sendresponse("200 Ok", "text/html", 
+"<html><head><meta http-equiv=\"refresh\" content=\"10\"></head>  <body>  <b>Memory Free " . $bytes ." </b> </body></html>", "");
+--------------------------------------------------------------------------------
+
+(source_file
+  (expression_statement
+    (call_expression
+      (identifier)
+      (identifier)
+      (arguments
+        (string)
+        (string)
+        (binary_expression
+          (binary_expression
+            (string
+              (escape_sequence)
+              (escape_sequence)
+              (escape_sequence)
+              (escape_sequence))
+            (scalar_identifier))
+          (string))
+        (string)))
+    (semi_colon)))
+
+================================================================================
+concat strings
+================================================================================
+$redirect = $hostheader."/bet/en-gb".(string.skip($path,7));
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (binary_expression
+        (binary_expression
+          (scalar_identifier)
+          (string))
+        (parenthesized_expression
+          (call_expression
+            (identifier)
+            (identifier)
+            (arguments
+              (scalar_identifier)
+              (number))))))
+    (semi_colon)))

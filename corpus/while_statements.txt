@@ -1,0 +1,55 @@
+================================================================================
+while statement - simple
+================================================================================
+$count = 0;
+while( $count < 10 ) {
+ $count = $count + 1;
+}
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (number))
+    (semi_colon))
+  (while_statement
+    (parenthesized_expression
+      (binary_expression
+        (scalar_identifier)
+        (number)))
+    (statement_block
+      (variable_declaration
+        (assignment_expression
+          (scalar_identifier)
+          (binary_expression
+            (scalar_identifier)
+            (number)))
+        (semi_colon)))))
+
+================================================================================
+while statement without parenthesis
+================================================================================
+$count = 0;
+while( $count < 10 )
+ $count = $count + 1;
+--------------------------------------------------------------------------------
+
+(source_file
+  (variable_declaration
+    (assignment_expression
+      (scalar_identifier)
+      (number))
+    (semi_colon))
+  (while_statement
+    (parenthesized_expression
+      (binary_expression
+        (scalar_identifier)
+        (number)))
+    (variable_declaration
+      (assignment_expression
+        (scalar_identifier)
+        (binary_expression
+          (scalar_identifier)
+          (number)))
+      (semi_colon))))
