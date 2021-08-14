@@ -2,32 +2,32 @@
 ; Special identifiers
 ;--------------------
 
-([
-    (identifier)
-    (scalar_identifier)
-    (global_identifier)
- ] @constant
- (#match? @constant "^[A-Z_][A-Z\\d_]+$"))
+; ([
+;     (identifier)
+;     (scalar_identifier)
+;     (global_identifier)
+;  ] @constant
+;  (#match? @constant "^[A-Z_][A-Z\\d_]+$"))
+; 
 
+; ((identifier) @constructor
+;  (#match? @constructor "^[A-Z]"))
 
-((identifier) @constructor
- (#match? @constructor "^[A-Z]"))
+; ((identifier) @variable.builtin
+;  (#match? @variable.builtin "^(arguments|module|console|window|document)$")
+;  (#is-not? local))
 
-((identifier) @variable.builtin
- (#match? @variable.builtin "^(arguments|module|console|window|document)$")
- (#is-not? local))
-
-((identifier) @function.builtin
- (#eq? @function.builtin "import")
- (#is-not? local))
+; ((identifier) @function.builtin
+;  (#eq? @function.builtin "import")
+;  (#is-not? local))
 
 ; Function
 ;--------------------------------
 
-(function
-  name: (identifier) @function)
-(function_declaration
-  name: (identifier) @function)
+; (function
+;   name: (identifier) @function)
+; (function_declaration
+;   name: (identifier) @function)
 
 ; (pair
 ;   key: (property_identifier) @function.method
@@ -49,8 +49,8 @@
 ; Function and method calls
 ;--------------------------
 
-(call_expression
-  function: (identifier) @function)
+; (call_expression
+;   function: (identifier) @function)
 
 ; (call_expression
 ;   function: (member_expression
@@ -72,73 +72,73 @@
   (true)
   (false)
 ] @constant.builtin
-
-(comments) @comment
-
-[
-  (string)
-] @string
-
-(number) @number
-
+; 
+; (comments) @comment
+; 
+; [
+;   (string)
+; ] @string
+; 
+; (number) @number
+; 
 ; Tokens
 ;-------
 
 
-[
-  ";"
-  "."
-  ","
-] @punctuation.delimiter
-
-[
-  "-"
-  "--"
-  "-="
-  "+"
-  "++"
-  "+="
-  "*"
-  "*="
-  "/"
-  "/="
-  "%"
-  "%="
-  "<"
-  "<="
-  "<<"
-  "<<="
-  "="
-  "=="
-  "!"
-  "!="
-  "=>"
-  ">"
-  ">="
-  ">>"
-  ">>="
-  ; ">>>"
-  ; ">>>="
-  "~"
-  "^"
-  "&"
-  "|"
-  "^="
-  "&="
-  "|="
-  "&&"
-  "||"
-] @operator
-
-[
-  "("
-  ")"
-  "["
-  "]"
-  "{"
-  "}"
-]  @punctuation.bracket
-
+; [
+;   ";"
+;   "."
+;   ","
+; ] @punctuation.delimiter
+; 
+; [
+;   "-"
+;   "--"
+;   "-="
+;   "+"
+;   "++"
+;   "+="
+;   "*"
+;   "*="
+;   "/"
+;   "/="
+;   "%"
+;   "%="
+;   "<"
+;   "<="
+;   "<<"
+;   "<<="
+;   "="
+;   "=="
+;   "!"
+;   "!="
+;   "=>"
+;   ">"
+;   ">="
+;   ">>"
+;   ">>="
+;   ; ">>>"
+;   ; ">>>="
+;   "~"
+;   "^"
+;   "&"
+;   "|"
+;   "^="
+;   "&="
+;   "|="
+;   "&&"
+;   "||"
+; ] @operator
+; 
+; [
+;   "("
+;   ")"
+;   "["
+;   "]"
+;   "{"
+;   "}"
+; ]  @punctuation.bracket
+; 
 [
   "as"
   "break"
