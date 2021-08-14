@@ -5,7 +5,7 @@ module.exports = grammar({
 
   // inline: $ => [
   //   $._string_content,
-  //   //$._member_expression,
+  //   //$.member_expression,
   //   //$._call_signature,
   //   //$.statement,
   //   $._expressions,
@@ -134,7 +134,7 @@ module.exports = grammar({
       field('value', seq(
         '(',
         $.expression,
-        optional(seq(',', $._member_expression)),
+        optional(seq(',', $.member_expression)),
         ')'
       )),
       field('body', $.switch_body)
@@ -401,19 +401,19 @@ module.exports = grammar({
 
     // end of operators
     call_expression: $ => prec.left('call', seq(
-      field('function', $._member_expression),
+      field('function', $.member_expression),
       field('arguments', $.arguments)
     )),
 
-    _member_expression: $ => choice(
+    member_expression: $ => choice(
       seq(
         field('module', repeat(seq(
           $.identifier,
           token.immediate('.'),
         ))),
-        field('property', $.identifier)
+        field('property', alias($.identifier, $.property_identifier))
       ),
-      field('property', $.identifier)
+      field('property', alias($.identifier, $.property_identifier))
     ),
 
     subscript_expression: $ => prec.left('member', seq(

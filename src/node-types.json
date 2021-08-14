@@ -419,39 +419,11 @@
         ]
       },
       "function": {
-        "multiple": true,
-        "required": true,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "module": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "property": {
         "multiple": false,
         "required": true,
         "types": [
           {
-            "type": "identifier",
+            "type": "member_expression",
             "named": true
           }
         ]
@@ -815,6 +787,36 @@
     }
   },
   {
+    "type": "member_expression",
+    "named": true,
+    "fields": {
+      "module": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": ".",
+            "named": false
+          },
+          {
+            "type": "identifier",
+            "named": true
+          }
+        ]
+      },
+      "property": {
+        "multiple": false,
+        "required": true,
+        "types": [
+          {
+            "type": "property_identifier",
+            "named": true
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "pair",
     "named": true,
     "fields": {
@@ -1070,30 +1072,6 @@
           }
         ]
       },
-      "module": {
-        "multiple": true,
-        "required": false,
-        "types": [
-          {
-            "type": ".",
-            "named": false
-          },
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
-      "property": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "identifier",
-            "named": true
-          }
-        ]
-      },
       "value": {
         "multiple": true,
         "required": true,
@@ -1111,15 +1089,11 @@
             "named": false
           },
           {
-            "type": ".",
-            "named": false
-          },
-          {
             "type": "expression",
             "named": true
           },
           {
-            "type": "identifier",
+            "type": "member_expression",
             "named": true
           }
         ]
