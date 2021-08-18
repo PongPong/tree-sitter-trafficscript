@@ -94,9 +94,9 @@ module.exports = grammar({
       $.empty_statement,
     ),
 
-    expression_statement: $ => seq(
-      $.expression,
-      $.semi_colon,
+    expression_statement: $ => choice(
+      $.function,
+      seq($.expression, $.semi_colon)
     ),
 
 
@@ -302,7 +302,6 @@ module.exports = grammar({
       $.false,
       $.hash,
       $.array,
-      $.function,
       $.call_expression,
     ),
 

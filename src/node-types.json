@@ -60,10 +60,6 @@
         "named": true
       },
       {
-        "type": "function",
-        "named": true
-      },
-      {
         "type": "global_identifier",
         "named": true
       },
@@ -511,6 +507,10 @@
       "types": [
         {
           "type": "expression",
+          "named": true
+        },
+        {
+          "type": "function",
           "named": true
         },
         {

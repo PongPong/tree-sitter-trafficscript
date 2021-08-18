@@ -71,15 +71,24 @@
       ]
     },
     "expression_statement": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
           "type": "SYMBOL",
-          "name": "expression"
+          "name": "function"
         },
         {
-          "type": "SYMBOL",
-          "name": "semi_colon"
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "expression"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "semi_colon"
+            }
+          ]
         }
       ]
     },
@@ -920,10 +929,6 @@
         {
           "type": "SYMBOL",
           "name": "array"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "function"
         },
         {
           "type": "SYMBOL",
