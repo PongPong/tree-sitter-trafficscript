@@ -12,8 +12,9 @@ http.setHeader( "Host", "secure.mysite.com" );
     (semi_colon))
   (expression_statement
     (call_expression
-      (identifier)
-      (identifier)
+      (member_expression
+        (identifier)
+        (property_identifier))
       (arguments
         (string)
         (string)))

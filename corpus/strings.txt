@@ -33,8 +33,9 @@ http.sendresponse("200 Ok", "text/html",
 (source_file
   (expression_statement
     (call_expression
-      (identifier)
-      (identifier)
+      (member_expression
+        (identifier)
+        (property_identifier))
       (arguments
         (string)
         (string)
@@ -66,8 +67,9 @@ $redirect = $hostheader."/bet/en-gb".(string.skip($path,7));
           (string))
         (parenthesized_expression
           (call_expression
-            (identifier)
-            (identifier)
+            (member_expression
+              (identifier)
+              (property_identifier))
             (arguments
               (scalar_identifier)
               (number))))))

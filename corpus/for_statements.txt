@@ -21,8 +21,9 @@ for ( $i = 0; $i < $arraylen; $i++ ){
     (statement_block
       (expression_statement
         (call_expression
-          (identifier)
-          (identifier)
+          (member_expression
+            (identifier)
+            (property_identifier))
           (arguments
             (binary_expression
               (binary_expression

@@ -11,8 +11,9 @@ foo.headbug();
     (semi_colon))
   (expression_statement
     (call_expression
-      (identifier)
-      (identifier)
+      (member_expression
+        (identifier)
+        (property_identifier))
       (arguments))
     (semi_colon)))
 
@@ -31,8 +32,20 @@ mylib.headbug();
     (semi_colon))
   (expression_statement
     (call_expression
-      (identifier)
-      (identifier)
+      (member_expression
+        (identifier)
+        (property_identifier))
       (arguments))
     (semi_colon)))
 
+================================================================================
+Imports using string
+================================================================================
+import "foo bar" as foobar;
+--------------------------------------------------------------------------------
+
+(source_file
+  (import_statement
+    (string)
+    (identifier)
+    (semi_colon)))

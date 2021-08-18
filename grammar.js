@@ -94,10 +94,7 @@ module.exports = grammar({
       $.empty_statement,
     ),
 
-    expression_statement: $ => choice(
-      $.function,
-      seq($.expression, $.semi_colon)
-    ),
+    expression_statement: $ => seq($.expression, $.semi_colon),
 
 
     //
@@ -105,19 +102,14 @@ module.exports = grammar({
     //
     //import: _$ => token('import'),
 
-    import_statement: $ => choice(
-      seq(
-        'import',
-        field('source', $.identifier),
-        $.semi_colon,
-      ),
-      seq(
-        'import',
-        field('source', $.identifier),
+    import_statement: $ => seq(
+      'import',
+      field('source', choice($.identifier, $.string)),
+      optional(seq(
         'as',
         field('alias', $.identifier),
-        $.semi_colon,
-      )
+      )),
+      $.semi_colon,
     ),
 
     else_clause: $ => seq('else', $.statement),
@@ -226,24 +218,7 @@ module.exports = grammar({
       $.semi_colon
     )),
 
-    //     variable_declarator: $ => seq(
-    //       field('name', $.identifier),
-    //       $._initializer
-    //     ),
-    // 
-    //     _initializer: $ => seq(
-    //       '=',
-    //       field('value', $.expression),
-    //     ),
-
     _call_signature: $ => field('parameters', $.formal_parameters),
-
-    function: $ => prec.left('literal', seq(
-      'sub',
-      field('name', optional($.identifier)),
-      $._call_signature,
-      field('body', $.statement_block)
-    )),
 
     function_declaration: $ => prec.left('declaration', seq(
       'sub',
@@ -282,7 +257,6 @@ module.exports = grammar({
 
     expression: $ => choice(
       $.primary_expression,
-      // $.member_expression,
       $.assignment_expression, // right
       $.unary_expression, // right
       $.binary_expression, // left
@@ -293,7 +267,7 @@ module.exports = grammar({
     primary_expression: $ => choice(
       $.subscript_expression,
       $.parenthesized_expression,
-      $.identifier,
+      $.member_expression,
       $.scalar_identifier,
       $.global_identifier,
       $.number,
@@ -393,7 +367,7 @@ module.exports = grammar({
               $.global_identifier
             )),
             field('operator', operator),
-            field('right', $.expression),
+            field('right', choice($.expression, $.member_expression)),
           ),
         ))
     ),
@@ -404,14 +378,11 @@ module.exports = grammar({
       field('arguments', $.arguments)
     )),
 
-    member_expression: $ => choice(
-      seq(
-        field('module', repeat(seq(
-          $.identifier,
-          token.immediate('.'),
-        ))),
-        field('property', alias($.identifier, $.property_identifier))
-      ),
+    member_expression: $ => seq(
+      field('module', optional(repeat(seq(
+        $.identifier,
+        token.immediate('.'),
+      )))),
       field('property', alias($.identifier, $.property_identifier))
     ),
 

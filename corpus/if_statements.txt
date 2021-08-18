@@ -16,8 +16,9 @@ if ( 4 == $ipversion ) {
     (assignment_expression
       (scalar_identifier)
       (call_expression
-        (identifier)
-        (identifier)
+        (member_expression
+          (identifier)
+          (property_identifier))
         (arguments
           (scalar_identifier))))
     (semi_colon))
@@ -51,8 +52,9 @@ if(array.length($parts) == 0) break;
     (parenthesized_expression
       (binary_expression
         (call_expression
-          (identifier)
-          (identifier)
+          (member_expression
+            (identifier)
+            (property_identifier))
           (arguments
             (scalar_identifier)))
         (number)))

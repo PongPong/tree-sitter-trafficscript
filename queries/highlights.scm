@@ -19,30 +19,28 @@
 ; Function
 ;--------------------------------
 
-(function
-   name: (identifier) @function)
 (function_declaration
    name: (identifier) @function)
 
-(pair
-   key: (property_identifier) @function.method
-   value: [(function) (function)])
+; (pair
+;    key: (property_identifier) @function.method
+;    value: (member_expression))
 
 (variable_declaration (assignment_expression
    left: (scalar_identifier) @function
-   right: [(function) (function)]))
+   right: (member_expression)))
 
 (variable_declaration (assignment_expression
    left: (global_identifier) @function
-   right: [(function) (function)]))
+   right: (member_expression)))
 
 (assignment_expression
    left: (scalar_identifier) @function
-   right: [(function) (function)])
+   right: (member_expression))
 
 (assignment_expression
    left: (global_identifier) @function
-   right: [(function) (function)])
+   right: (member_expression))
 
 ; Function and method calls
 ;--------------------------

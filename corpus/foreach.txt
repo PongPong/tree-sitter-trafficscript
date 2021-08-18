@@ -14,8 +14,9 @@ foreach ( $element in $array ) {
     (statement_block
       (expression_statement
         (call_expression
-          (identifier)
-          (identifier)
+          (member_expression
+            (identifier)
+            (property_identifier))
           (arguments
             (binary_expression
               (binary_expression
@@ -42,15 +43,17 @@ foreach ( $key in hash.keys($hash)){
   (for_each_statement
     (scalar_identifier)
     (call_expression
-      (identifier)
-      (identifier)
+      (member_expression
+        (identifier)
+        (property_identifier))
       (arguments
         (scalar_identifier)))
     (statement_block
       (expression_statement
         (call_expression
-          (identifier)
-          (identifier)
+          (member_expression
+            (identifier)
+            (property_identifier))
           (arguments
             (binary_expression
               (binary_expression

@@ -13,16 +13,18 @@ $pi = 3.14157;
     (assignment_expression
       (scalar_identifier)
       (call_expression
-        (identifier)
-        (identifier)
+        (member_expression
+          (identifier)
+          (property_identifier))
         (arguments)))
     (semi_colon))
   (variable_declaration
     (assignment_expression
       (scalar_identifier)
       (call_expression
-        (identifier)
-        (identifier)
+        (member_expression
+          (identifier)
+          (property_identifier))
         (arguments)))
     (semi_colon))
   (variable_declaration

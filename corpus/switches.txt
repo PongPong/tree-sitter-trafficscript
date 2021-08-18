@@ -17,14 +17,16 @@ switch( $host, string.startsWith ) {
     (assignment_expression
       (scalar_identifier)
       (call_expression
-        (identifier)
-        (identifier)
+        (member_expression
+          (identifier)
+          (property_identifier))
         (arguments)))
     (semi_colon))
   (switch_statement
     (scalar_identifier)
-    (identifier)
-    (identifier)
+    (member_expression
+      (identifier)
+      (property_identifier))
     (switch_body
       (switch_case
         (sequence_expression
@@ -32,8 +34,9 @@ switch( $host, string.startsWith ) {
           (string))
         (expression_statement
           (call_expression
-            (identifier)
-            (identifier)
+            (member_expression
+              (identifier)
+              (property_identifier))
             (arguments
               (string)))
           (semi_colon)))
@@ -41,16 +44,18 @@ switch( $host, string.startsWith ) {
         (string)
         (expression_statement
           (call_expression
-            (identifier)
-            (identifier)
+            (member_expression
+              (identifier)
+              (property_identifier))
             (arguments
               (string)))
           (semi_colon)))
       (switch_default
         (expression_statement
           (call_expression
-            (identifier)
-            (identifier)
+            (member_expression
+              (identifier)
+              (property_identifier))
             (arguments
               (string)))
           (semi_colon))))))
